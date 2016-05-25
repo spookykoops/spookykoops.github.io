@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<title>Jack's Portfolio</title>
+		<style>
+			body {width: 100%; height: 1200px; background-color: black;}
+			.main {font-size: 18px;}
+			ul {
+			  list-style: none;
+			  padding: 0;
+			  margin: 0;
+			  background: #5DC0DE;
+			}
+
+			ul li {
+			  display: block;
+			  position: relative;
+			  float: left;
+			  background: #5DC0DE;
+			}
+
+			li ul { display: none; }
+
+			ul li a {
+			  display: block;
+			  padding: 1em;
+			  text-decoration: none;
+			  white-space: nowrap;
+			  color: #fff;
+			}
+
+			ul li a:hover { background: #C5E2EB; }
+
+			li:hover > ul {
+			  display: block;
+			  position: absolute;
+			}
+
+			li:hover li { float: none; }
+
+			li:hover a { background: #5DC0DE; }
+
+			li:hover li a:hover { background: #C5E2EB; }
+
+			.main-navigation li ul li { border-top: 0; }
+
+			ul ul ul {
+			  left: 100%;
+			  top: 0;
+			}
+			ul:before,
+			ul:after {
+			  content: "";
+			  display: table; 
+			}
+			ul:after {
+				clear: both;
+			}
+			ul li ul li ul {
+				margin-top: 5px;
+			}
+			ul li ul li ul li.second {
+				margin-left: 5px;
+			}
+			.bannergif { 
+				display: block;
+			}
+			.bannerimg {
+				display: none;
+			}
+			body {
+				background-color: black;
+			}
+			.textregion {
+				background-color: #C4F0FF;
+				margin-left: 20%;
+				margin-right: 20%;
+				padding-left: 4px;
+				padding-right: 4px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+			}
+			.lowerbody {
+				background-color: white;
+			}
+		</style>
+	</head>
+	<body onload="loadFunction()">
+		<center><div class="container">
+			<div class="bannergif">
+				<img src="http://s33.postimg.org/h0v36obq7/Banner.gif" width="100%" height="600">
+			</div>
+			<div class="bannerimg">
+				<img src="http://s33.postimg.org/4kggdc5sv/picturever.png" width="100%" height="600">
+			</div>
+		</div></center>
+		<div class="main">
+			<ul class="main-navigation">
+				<li>
+					<a href="./index.html">Home</a>
+				</li>
+				<li>
+					<a href="./images.html">Image Manipulation</a>
+				<li>
+					<a href="./webpages.html">HTML, CSS, Bootstrap and JavaScript Webpages</a>
+					<ul>
+						<li><a href="./webpages.html">Madrid, Spain</a></li>
+						<li><a href="./webpages.html">Neptune and Poseidon</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="./modeling.html">3D Modeling</a>
+				</li>
+				<li>
+					<a href="./hardware.html">Hardware Chart</a>
+				</li>
+				<li>
+					<a href="./unreal.html">Unreal Engine 4 Project</a>
+				</li>
+				<li>
+					<a id="txt" onclick="startTime()"><div id="txt"></div></a>
+				</li>
+			</ul>
+		</div>
+		<div class="lowerbody" height="900px">
+			<div class="textregion">
+				<center>
+					<br>
+					<h1>HTML, CSS, Boostrap, and Javascript / Webpages</h1>
+				<p>In computers class, we learned how to create websites from scratch. We did this using four languages; HTML, CSS, Bootstrap and JavaScript.<p>
+				<h2>A webpage about Madrid, Spain.</h2>
+				<iframe src="madrid.html" width="90%" height="600px"></iframe>
+				<h2>A webpage about Neptune and Poseidon</h2>
+				<iframe src="neptune.html" width="90%" height="600px"></iframe>
+				</center>
+				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</div>
+		<script>
+			// GIF
+			$(function() {
+			  $(".bannergif").delay(5000).fadeOut();
+			});
+			// Image
+			$(function() {
+			  $(".bannerimg").delay(5400).fadeIn();
+			});
+			// ClockButton
+			function loadFunction(){
+				var buttonvar = "What time is it?";
+				document.getElementById('txt').innerHTML = buttonvar;
+			}
+			function startTime() {
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('txt').innerHTML =
+				h + ":" + m + ":" + s;
+				var t = setTimeout(startTime, 500);
+			}
+			function checkTime(i) {
+				if (i < 10) {i = "0" + i};
+				return i;
+			}
+		</script>
+		</div>
+	</body>
+</html>
